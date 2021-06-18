@@ -1,0 +1,23 @@
+http:
+  routers:
+    traefik:
+      rule: "Host(`traefik.lazaroff.pro`)"
+      service: "api@internal"
+      middlewares: "auth"
+      tls:
+        domains:
+          - main: "lazaroff.pro"
+            sans:
+              - "*.lazaroff.pro"
+          - main: "lazaroff.pro"
+            sans:
+              - "*.lazaroff.pro"
+  middlewares:
+    auth:
+      basicAuth:
+        usersFile: "/etc/traefik/usersfile"
+
+tls:
+  certificates:
+    - certFile: "/etc/certs/fullchain.pem"
+      keyFile: "/etc/certs/privkey.pem"

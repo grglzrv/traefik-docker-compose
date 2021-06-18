@@ -1,0 +1,5 @@
+# Generate user and password with the following command below:
+#-------------------------------------------------------------
+# echo $(htpasswd -nb user password) | sed -e s/\\$/\\$\\$/g
+#Example:
+user:$$apr1$$mmDZ9h0N$$0PMNhClBqkGMcaerlXX4t/
